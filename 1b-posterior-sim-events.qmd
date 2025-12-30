@@ -1,0 +1,153 @@
+
+
+
+
+```{r}
+# Load necessary libraries
+library(dplyr)
+library(ggplot2)
+library(janitor)
+```
+
+## Prior Model
+
+
+
+1. Define possible email types
+
+```{r}
+email <- data.frame(type = c("spam", "non-spam"))
+```
+
+
+2. Define the prior model
+
+```{r}
+prior <- c(0.4, 0.6)
+```
+
+
+
+3. Set seed for reproducibility
+
+```{r}
+set.seed(84735)
+```
+
+4. Simulate 10,000 emails
+
+```{r}
+email_sim <- sample_n(
+  email,
+  size = 10000, 
+  weight = prior, 
+  replace = TRUE
+  )
+```
+
+
+5. Visualize the distribution
+
+```{r}
+ggplot(email_sim, aes(x = type)) + 
+  geom_bar()
+```
+
+6. Summary table
+
+```{r}
+email_sim |> 
+  tabyl(type) |> 
+  adorn_totals("row")
+```
+
+
+## Likelihood
+
+# Add the data model (conditional probabilities for all caps usage)
+
+
+```{r}
+email_sim <- email_sim |> 
+  mutate(
+    data_model = case_when(
+      type == "spam" ~ 0.20,
+      type == "non-spam" ~ 0.05
+      )
+    )
+```
+
+```{r}
+glimpse(email_sim)
+```
+
+
+## All Caps Usage Simulation
+
+1. Define whether email uses all caps
+
+```{r}
+caps <- c("no", "yes")
+
+```
+
+2. Simulate all caps usage for each email
+
+
+```{r}
+email_sim <- email_sim |>
+  group_by(1:n()) |> 
+  mutate(all_caps = sample(caps, size = 1, 
+                           prob = c(1 - data_model, data_model)))
+```
+
+
+3. Summary of simulated emails
+
+```{r}
+email_sim |> 
+  tabyl(all_caps, type) |> 
+  adorn_totals(c("col","row"))
+```
+
+
+4. Visualizations
+
+```{r}
+ggplot(email_sim, aes(x = type, fill = all_caps)) + 
+  geom_bar(position = "fill") +
+  labs(title = "All Caps Usage by Email Type (Proportions)",
+       x = "Email Type", y = "Proportion", fill = "All Caps")
+```
+
+
+```{r}
+ggplot(email_sim, aes(x = all_caps, fill = type)) + 
+  geom_bar() +
+  labs(title = "Overall All Caps Usage",
+       x = "All Caps", y = "Count", fill = "Email Type")
+```
+
+```{r}
+ggplot(email_sim, aes(x = type)) + 
+  geom_bar() + 
+  facet_wrap(~ all_caps) +
+  labs(title = "Spam vs Non-Spam by All Caps Usage")
+```
+
+
+
+## Posterior Model
+
+Filter for emails with all caps (our observed data) and calculate posterior probability that email is spam
+
+```{r}
+email_sim |> 
+  filter(all_caps == "yes") |> 
+  tabyl(type) |> 
+  adorn_totals("row")
+```
+
+
+
+
