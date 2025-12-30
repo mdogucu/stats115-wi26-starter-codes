@@ -1,0 +1,84 @@
+```{r}
+#| echo: false
+library(knitr)
+```
+
+## Bayes Rules! Example 2.2 - Pop vs Soda vs Coke
+
+
+## Overview
+
+- Exploring how language variations can update our belief about the regions in which people might live in the U.S.
+
+**Key concepts to explore:**
+
+- Prior Probability: Understanding initial regional information based on U.S. Census data.
+
+- Likelihood: Assessing the probability of using the term "pop" in different regions.
+
+- Marginal Probability: Calculating the overall probability of "pop" usage across the U.S.
+
+- Posterior Probability: Updating our beliefs about regional residency based on the usage of "pop"  using the given data and Bayes' Rule.
+
+
+
+**Pop vs Soda vs Coke Example:**
+
+Suppose you're watching an interview of somebody that lives in the United States. Without knowing anything about this person, U.S. Census figures provide prior information about the region in which they might live: the Midwest (**M**), Northeast (**N**), South (**S**), or West (**N**)
+
+This **prior model** is summarized in the Table below:
+
+```{r}
+#| echo: false
+
+region_data <- data.frame(
+  Region = "Probability",
+
+  M = 0.21,
+
+  N = 0.17,
+
+  S = 0.38,
+
+  W = 0.24
+
+)
+
+kable(region_data, col.names = c("region", "M", "N", "S", "W"), caption = "Prior model of U.S. region.")
+```
+
+
+
+But then, you see the person point to a fizzy cola drink and say “please pass my pop.” Though the country is united in its love of fizzy drinks, it’s divided in what they’re called, with common regional terms including **pop, soda**, and **coke**.
+
+This data, i.e., the person’s use of **pop**, provides further information about where they might live. To evaluate this data, we can examine the `pop_vs_soda` dataset in the `bayesrules` package (Dogucu, Johnson, and Ott 2021) . 
+
+
+
+Go ahead and load the dataset in R and summarize pop use by region. Letting $A$ denote the event that a person uses the word **pop**, write down the following regional likelihoods:
+
+- $L(M|A) = ?$
+- $L(N|A) = ?$
+- $L(S|A) = ?$
+- $L(W|A) = ?$
+
+Interpret the numbers.
+
+
+
+- What is the posterior probability that the person who refers the fizzy drink using the word $pop$ lives in the South? Per Bayes’ Rule , we can calculate this probability by
+
+
+$$P(S|A) = \frac{P(S) \times L(S|A)}{P(A)}$$
+
+
+We already have two of the three necessary pieces of the puzzle, the prior probability P(S) and likelihood  $L(S|A)$. 
+
+- By extending the Law of Total Probability,  calculate  $P(A)$ by combining the likelihoods of using “pop” in each region, while accounting for the regional populations.
+
+
+- Similarly update your understanding of the interviewee living in the Midwest, Northeast, or West.
+
+## Posterior Simulation
+
+Simulate the posterior.
