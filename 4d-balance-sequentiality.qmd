@@ -1,0 +1,29 @@
+---
+title: "STATS 115 : Discussion Session Week 4"
+format: 
+  html
+---
+
+Exercises used in this discussion session are from  [the Bayes Rules! book](https://www.bayesrulesbook.com/)
+
+
+```{r}
+#| echo: false
+library(bayesrules)
+```
+
+## Balance and Sequentiality
+
+### Exercise 4.17 
+
+
+
+### Exercise 4.18 
+
+
+
+## Review
+
+### Exercise 2.14
+
+### Exercise 2.17
