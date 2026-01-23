@@ -1,5 +1,5 @@
 ---
-title: "STATS 115 : Discussion Session Week 4"
+title: "STATS 115 : Discussion Session Week 3"
 format: 
   html
 ---
