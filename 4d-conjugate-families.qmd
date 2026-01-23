@@ -1,0 +1,26 @@
+---
+title: "STATS 115 : Discussion Session Week 4"
+format: 
+  html
+---
+
+Exercises used in this discussion session are from  [the Bayes Rules! book](https://www.bayesrulesbook.com/)
+
+
+```{r}
+#| echo: false
+library(bayesrules)
+```
+
+## Gamme-Poisson
+
+### Exercise 5.5
+
+### Exercise 5.6
+
+
+## Normal-Normal
+
+### Exercise 5.9
+
+### Exercise 5.10
