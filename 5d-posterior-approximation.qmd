@@ -20,12 +20,12 @@ library(bayesrules)
 
 ## Metropolis-Hastings
 
-## Exercise 7.2
+### Exercise 7.2
 
-## Exercise 7.3
+### Exercise 7.3
 
-## Exercise 7.5
+### Exercise 7.5
 
-## Exercise 7.6a
+### Exercise 7.6a
 
-## Exercise 7.7a
+### Exercise 7.7a
