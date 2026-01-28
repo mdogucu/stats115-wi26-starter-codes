@@ -1,0 +1,31 @@
+---
+title: "STATS 115 : Discussion Session Week 5"
+format: 
+  html
+---
+
+Exercises used in this discussion session are from  [the Bayes Rules! book](https://www.bayesrulesbook.com/)
+
+
+```{r}
+#| echo: false
+library(bayesrules)
+```
+
+## Grid Approximation
+
+### Exercise 6.2
+
+### Exercise 6.6
+
+## Metropolis-Hastings
+
+## Exercise 7.2
+
+## Exercise 7.3
+
+## Exercise 7.5
+
+## Exercise 7.6a
+
+## Exercise 7.7a
