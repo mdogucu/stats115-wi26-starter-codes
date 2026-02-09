@@ -1,0 +1,26 @@
+---
+title: "STATS 115 : Discussion Session Week 6"
+format: 
+  html
+---
+
+Exercises used in this discussion session are from  [the Bayes Rules! book](https://www.bayesrulesbook.com/)
+
+
+```{r}
+#| echo: false
+library(bayesrules)
+```
+
+## Exercise 9.9
+
+## Exercise 9.10
+
+## Exercise 9.11
+
+## Exercise 9.12
+
+## Exercise 9.13
+
+
+
